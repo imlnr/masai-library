@@ -26,7 +26,7 @@ orderRouter.post('/order', orderauth, async (req, res) => {
 orderRouter.get('/orders', orderauth, async (req, res) => {
     try {
 
-        const orders = await OrderModel.find().populate('User').populate('Book');
+        const orders = await OrderModel.find().populate('user').populate('books')
 
         res.status(200).json(orders);
     } catch (error) {
