@@ -48,3 +48,7 @@ userRouter.post("/login", async (req, res) => {
         res.status(500).send({ "error": err });
     }
 });
+
+module.exports = {
+    userRouter
+}
