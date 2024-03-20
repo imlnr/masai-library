@@ -31,6 +31,22 @@ bookRouter.get("/books", async (req, res) => {
     }
 });
 
+bookRouter.get('/books', async (req, res) => {
+    try {
+        const { author, category } = req.query;
+        const query = {};
+        if (author) {
+            query.author = author;
+        }
+        if (category) {
+            query.category = category;
+        }
+        const books = await BookModel.find(query);
+        res.status(200).json(books);
+    } catch (error) {
+        res.status(500).json({ "msg": 'Internal server error' })
+    }
+})
 
 module.exports = {
     bookRouter
