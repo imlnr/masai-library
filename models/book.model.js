@@ -8,7 +8,7 @@ const BookSchema = mongoose.Schema({
     quantity: { type: Number, required: true }
 })
 
-const BookModel = mongoose.model("Books",BookSchema);
+const BookModel = mongoose.model("Book",BookSchema);
 
 module.exports = {
     BookModel

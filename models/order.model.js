@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = mongoose.Schema({
-    title: { type: String, required: true },
-    author: { type: String, required: true },
-    category: { type: String, required: true },
-    price: { type: Number, required: true },
-    quantity: { type: Number, required: true }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    books: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true }],
+    totalAmount: { type: Number, required: true }
 })
 
-const OrderModel = mongoose.model("Orders",OrderSchema);
+const OrderModel = mongoose.model("Order", OrderSchema);
 
 module.exports = {
     OrderModel
