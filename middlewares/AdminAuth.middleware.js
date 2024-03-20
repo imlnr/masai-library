@@ -5,7 +5,7 @@ const auth = async (req, res, next) => {
         try {
             const decode = jwt.verify(token, "masai");
             if (decode) {
-                if (decode.isAuth === true) {
+                if (decode.isAdmin === true) {
                     next();
                 }
                 else {
